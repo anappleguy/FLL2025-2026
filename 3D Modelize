@@ -1,0 +1,29 @@
+import numpy as np
+import matplotlib.pyplot as plt
+# from scipy.spatial import Delaunay
+# from mpl_toolkits.mplot3d import Axes3D
+
+points = np.array(
+
+      #######
+
+,dtype=float)    
+
+points = points + np.random.uniform(-1e-6, 1e-6, size=points.shape)
+
+points = np.unique(points, axis=0)
+
+x, y, z = points[:,0], points[:,1], points[:,2]
+
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(x, y, z, c='r', marker='o')
+
+ax.plot_trisurf(x, y, z, cmap='plasma', alpha=0.6) 
+
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+ax.set_title('Terrabot 3D Modelize')
+
+plt.show()
